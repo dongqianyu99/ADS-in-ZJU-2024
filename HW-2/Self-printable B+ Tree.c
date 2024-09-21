@@ -266,7 +266,7 @@ void insert(int x, tree* T)
                     parent_node2->middle = NULL;
                     parent_node2->right = parent->right;
                     parent_node2->key[0] = findrightmin(parent->right);
-                    parent->key_size = 1;
+                    parent_node2->key_size = 1;
                 }
                 else if (x > parent->key[1]){ // left, middle, node1, node2
                     parent_node1->left = parent->left;
