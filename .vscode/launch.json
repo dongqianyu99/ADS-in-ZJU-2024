@@ -9,7 +9,7 @@
       "stopAtEntry": false,
       "externalConsole": true,
       "cwd": ".",
-      "program": "build/Debug/outDebug",
+      "program": "${workspaceFolder}/HW-2/output/Self-printable B+ Tree.exe",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
