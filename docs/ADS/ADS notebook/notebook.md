@@ -562,24 +562,79 @@ In machine learning:
 
 ### Leftist Heap
 
-define the **null path length**, *npl(X)*, of ant node X to be the length of the shortest path from X to a node without two children
+>**Targe**: Speed up merging in O(N)  
 
-the *npl* of a node with zero or one child is 0, while *npl*(nullptr) = -1
+Define the **null path length**, *Npl(X)*, of any node X to be the length of the shortest path from X to a node without two children
 
-```
-for every node X in the heap, the null path length of the left child is at least as large as that of the right child
-(for each u, the right decending path from u to null is one of the shortest path from u to null)
+The *npl* of a node with zero or one child is 0, while *npl*(NULL) = -1
+
+?>**Note**  
+${Npl(X)=min\{NPL(C)+1 {\space} for {\space} all {\space} C {\space} as {\space} children {\space} of {\space} X \}}$
+
+>The **leftist heap** property is that <u>for every node X in the heap, the null path length of the left child is at least as large as that of the right child</u>
+>(for each u, the right decending path from u to null is one of the shortest path from u to null)
 
 ensure the tree is unbalanced, tend to have deep left paths and is preferable to facilitate merging
-```
+
 
 ![alt text](image-12.png)
 
-```
 Lemma:
 For a leftist heap with n nodes, its right path has at most log2(n + 1) nodes.
 <==> A leftist heap with r nodes on the right path must have at least 2^r - 1 nodes.
-```
 
-#### merge
+![alt text](image-10.png)
+
+
+#### merge  
+
+![alt text](image-39.png)  
+
+#### recursive version  
+
+![alt text](image-36.png)  
+
+#### interative version  
+*Step1:* Sort the right paths without changing their left children  
+
+![alt text](image-37.png)
+
+*Step 2:* Swap children if necessary  
+
+![alt text](image-38.png)  
+
+### Skew Heaps  
+
+>**Target:** Any M consecutive operations take at most O(MlogN) time  
+
+?>**Merge**  
+**Always swap** the left and right children except that *the largest of all the nodes on the right paths does not have its children swapped*.  **No Npl**.  
+
+[Skew Heap Visualization](https://www.cs.usfca.edu/~galles/JavascriptVisual/SkewHeap.html)  
+
+#### Amortized Analysis for Skew Heaps  
+
+>**Definition**  
+A node ${p}$ is **heavy** if the number of descendants of ${p}$ 's right subtree is at least half of the number of descendants of ${p}$, and **light** otherwise. Note that the number of descendants of a node includes the node itself.  
+$\Rightarrow$ If $Num_{right nodes} > Num_{left nodes}$, the node is heavy, else the node is light.
+
+!>
+${D_i}=the {\space} root {\space} of {\space} the {\space} resulting {\space} tree$  
+$\phi(D_i)= number {\space} of {\space} heavy {\space} node$  
+!>The key point is that potentail function $\phi$ should include both "bad luck" and "good luck". If define $\phi$ as the number of Right Node, $\phi$ only include "bad luck".  
+
+?>**Properties**  
+1. If node ${p}$ is a heavy node and its right subtree is merges, ${p}$ will *definitely* turn into a light node  
+2. If node ${p}$ is a light node and its right subtree is merges, ${p}$ *might* turn into a heavy node  
+3. The only nodes whose heavy/light status can change are nodes that are *initially on the right path*.  
+
+$\hat{c} = {c} + \phi(H_{merged}) - \phi({H_1})-\phi({H_2})$  
+
+- ${H_i}:l_i+h_i \Rightarrow c=T_{worst}=l_1+h_1+l_2+h_2$  
+- $\phi(H_{merge}) \leq l_1 + l_2 + h$  
+- $\phi(H_1)+\phi(H_2) \leq h_1 + h_2 + h$  
+- ${h}$ represents the heavy nodes that are  initially not on the rightest path  
+
+$\hat{c}=c+\phi(H_{merged})-\phi(H_1)-\phi(H_2)\leq2(l_1+l_2)$  
+$\Rightarrow\hat{c}=O(logN)$  
 
