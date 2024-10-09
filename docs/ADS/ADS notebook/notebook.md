@@ -621,12 +621,12 @@ $\Rightarrow$ If $Num_{right nodes} > Num_{left nodes}$, the node is heavy, else
 !>
 ${D_i}=the {\space} root {\space} of {\space} the {\space} resulting {\space} tree$  
 $\phi(D_i)= number {\space} of {\space} heavy {\space} node$  
-!>The key point is that potentail function $\phi$ should include both "bad luck" and "good luck". If define $\phi$ as the number of Right Node, $\phi$ only include "bad luck".  
+The key point is that potentail function $\phi$ should include both "bad luck" and "good luck". If define $\phi$ as the number of Right Node, $\phi$ only include "bad luck".  
 
 ?>**Properties**  
-1. If node ${p}$ is a heavy node and its right subtree is merges, ${p}$ will *definitely* turn into a light node  
-2. If node ${p}$ is a light node and its right subtree is merges, ${p}$ *might* turn into a heavy node  
-3. The only nodes whose heavy/light status can change are nodes that are *initially on the right path*.  
+If node ${p}$ is a heavy node and its right subtree is merges, ${p}$ will *definitely* turn into a light node  
+If node ${p}$ is a light node and its right subtree is merges, ${p}$ *might* turn into a heavy node  
+sThe only nodes whose heavy/light status can change are nodes that are *initially on the right path*.  
 
 $\hat{c} = {c} + \phi(H_{merged}) - \phi({H_1})-\phi({H_2})$  
 
