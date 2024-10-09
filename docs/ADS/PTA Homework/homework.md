@@ -569,6 +569,137 @@ B. F
 <br/>
 
 ### Document Distance
-```c
+
+Score: 6/10
+
+```cpp
+#include <cstdio>
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <map>
+#include <set>
+#include <vector>
+
+using namespace std;
+
+const int MAXN = 100;
+
+int N, M, vocabSize;
+string title;
+
+vector <int> freq[MAXN];
+set <string> dict;
+map <string, int> count[MAXN];
+map <string, int> titleList;
+
+double docDis(int m, int n)
+{
+    int sum = 0;
+    for (int i = 1; i <= vocabSize; i++)
+        sum += freq[m][i] * freq[n][i];
+
+    int length_m = 0;
+    for (int i = 1; i <= vocabSize; i++)
+        length_m += freq[m][i] * freq[m][i];
+    int length_n = 0;
+    for (int i = 1; i <= vocabSize; i++)
+        length_n += freq[n][i] * freq[n][i];
+    
+    return acos(sum * 1.0 / (sqrt(length_m) * sqrt(length_n) * 1.0));
+}
+
+string stemmer(string str){
+    if (str.size() > 7 && str.substr(str.size() - 7) == "ational") {
+        return(str.substr(0, str.size() - 7) + "ate");
+    }
+    if (str.size() > 6 && str.substr(str.size() - 6) == "tional") {
+        return(str.substr(0, str.size() - 6) + "tion");
+    }
+    if (str.size() > 4 && str.substr(str.size() - 4) == "enci") {
+        return(str.substr(0, str.size() - 4) + "ence");
+    }
+
+    ...
+
+    if (str.size() > 2 && str.substr(str.size() - 2) == "al") {
+        return(str.substr(0, str.size() - 2) + "");
+    }
+
+    return str;
+}
+
+void tokenizer(int ID){
+    char ch;
+    string token;
+    do{
+        scanf("%c", &ch);
+        if (isalpha(ch))
+            token += tolower(ch);
+        else{
+            token = stemmer(token);
+            dict.insert(token);
+            count[ID][token]++;
+            token = "";
+        }
+    } while (ch != '#');
+}
+
+void setfreq(){
+    for (int i = 1; i <= N; i++){
+        freq[i].resize(vocabSize);
+        int j = 0;
+        for (auto word = dict.begin(); word != dict.end(); word++)
+            freq[i][j++] = count[i][*word];
+    }
+}
+
+int main()
+{
+    scanf("%d", &N);
+    for (int ID = 1; ID <= N; ID++){
+        cin >> title;
+        titleList[title] = ID;
+        tokenizer(ID);
+    }
+    vocabSize = dict.size();
+    setfreq();
+
+    string title1, title2;
+    scanf("%d", &M);
+    for (int i = 1; i <= M; i++){
+        cin >> title1 >> title2;
+        printf("Case %d: %.3f\n", i, docDis(titleList[title1], titleList[title2]));
+    }
+}
 ```
 
+## HW-4  
+1. **(HARD)** We can perform BuildHeap for leftist heaps by considering each element as a one-node leftist heap, placing all these heaps on a queue, and performing the following step: Until only one heap is on the queue, dequeue two heaps, merge them, and enqueue the result.  Which one of the following statements is FALSE?
+A. in the $k^{th}$ run, $\lceil N/2^k \rceil$ leftist heaps are formed, each contains $2^k$ nodes
+B. the worst case is when $N=2^K$ for some integer $K$
+C. the time complexity $T(N) = O(\frac{N}{2}log 2^0 + \frac{N}{2^2}log 2^1 + \frac{N}{2^3}log 2^2 + \cdots + \frac{N}{2^K}log 2^{K-1})$ for some integer $K$ so that $N=2^K$
+==D. the worst case time complexity of this algorithm is $\Theta (NlogN)$==  
+
+>From C, $T(N)=O(N)$
+**$T(N)=2T(N/2)+O(logN)$** to get C  
+
+### The function is to merge two leftist heaps H1 and H2.
+```c
+PriorityQueue Merge( PriorityQueue H1, PriorityQueue H2 )
+{ 
+    if (H1==NULL) return H2;
+    if (H2==NULL) return H1;
+    if [(H1->Element > H2->Element)]
+        swap(H1, H2);  //swap H1 and H2
+    if ( H1->Left == NULL )
+        [swap(H1->Left,H1->Right)];                   ;
+    else {
+        H1->Right = Merge( H1->Right, H2 );
+        if ( H1->Left->Npl < H1->Right->Npl )
+        SwapChildren( H1 );  //swap the left child and right child of H1
+    H1->Npl = H1->Right->Npl + 1;;
+    }
+    return H1;
+}
+```
