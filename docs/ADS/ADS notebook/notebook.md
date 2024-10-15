@@ -677,6 +677,34 @@ When doing *Merge*, the new tree will be the *largest*. Hence maintain the subtr
 
 ![alt text](image-42.png)  
 
+#### Coding  
+
+```c
+BinQueue Merge(BinQueue H1, BinQueue H2)
+{
+    BinTree T1, T2, Carry = NULL;
+    int i, j;
+    if (H1->CurrentSize + H2->CurrentSize > Capacity) 
+        ErrorMessage();
+    H1->CurrentSize += H2->CurrentSize;
+    for (i = 0, j = 1; j <= H1->CurrentSize; i++, j *= 2){  // | Carry | T2 | T1 |
+        T1 = H1->TheTrees[i];
+        T2 = H2->TheTrees[i];  // Current Trees
+        switch (4*!!Carry + 2*!!T2 + !!T1){
+            case 0:
+            case 1: break;
+            case 2: H1->TheTrees[i] = T2; H2->TheTrees[i] = NULL; break;
+            case 3: Carry = CombineTrees(T1, T2); H1->TheTrees[i] = H2 ->TheTrees[i] = NULL; break;
+            case 4: H1->TheTrees[i] = Carry; Carry = NULL; break;
+            case 5: Carry = CombineTrees(T1, Carry); H1->TheTrees[i] = NULL; break;
+            case 6: Carry = CombineTrees(T2, Carry); H2->TheTrees[i] = NULL; break;
+            case 7: H1->TheTrees[i] = Carry; CombineTrees(T1, T2); H2->TheTrees[i] = NULL; break;
+        }
+    }
+    return H1;
+}
+```
+
 #### Summary
 |Operation|Find-min|Delete-min|Insert|Decrease-key|merge|
 |---------|--------|----------|------|------|----|
