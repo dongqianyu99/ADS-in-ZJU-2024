@@ -693,13 +693,54 @@ PriorityQueue Merge( PriorityQueue H1, PriorityQueue H2 )
     if [(H1->Element > H2->Element)]
         swap(H1, H2);  //swap H1 and H2
     if ( H1->Left == NULL )
-        [swap(H1->Left,H1->Right)];                   ;
+        [SwapChildren(H1)];                   ;
     else {
         H1->Right = Merge( H1->Right, H2 );
         if ( H1->Left->Npl < H1->Right->Npl )
         SwapChildren( H1 );  //swap the left child and right child of H1
-    H1->Npl = H1->Right->Npl + 1;;
+    [H1->Npl = H1->Right->Npl + 1];
     }
     return H1;
+}
+```
+
+## HW-5  
+1. Merge the two binomial queues in the following figure.  Which one of the following statements must be FALSE?  
+A. there are two binomial trees after merging, which are B2B_2 and B4B_4  
+B. 13 and 15 are the children of 4  
+C. if 23 is a child of 2, then 12 must be another child of 2  
+==D. if 4 is a child of 2, then 23 must be another child of 2==  
+
+![alt text](132.jpg)  
+
+### The functions `BinQueue_Find` and `Recur_Find` are to find X in a binomial queue H.  Return the node pointer if found, otherwise return NULL.  
+
+```c
+BinTree BinQueue_Find( BinQueue H, ElementType X )
+{
+    BinTree T, result = NULL;
+    int i, j; 
+
+    for( i=0, j=1; j<=H->CurrentSize; i++, j*=2) {  /* for each tree in H */
+        T= H->TheTrees[i];
+        if ( X [>= T->Element] ){  /* if need to search inside this tree */
+            result = Recur_Find(T, X);
+            if ( result != NULL ) return result;
+        } 
+    }
+    return result;
+}
+
+BinTree Recur_Find( BinTree T, ElementType X )
+{
+    BinTree result = NULL;
+    if ( X==T->Element ) return T;
+    if ( T->LeftChild!=NULL ){
+        result = Recur_Find(T->LeftChild, X);
+        if ( result!=NULL ) return result;
+    } 
+    if ( [T->NextSibling!=NULL] )
+        result = Recur_Find(T->NextSibling, X);
+    return result;
 }
 ```
