@@ -661,12 +661,26 @@ $C_i=$ cost of the $i^{th}$ insertion
 $\Phi_i=$ number of trees after the $i^{th}$ insertion ($\Phi_0=0$)  
 
 $\Rightarrow$ $\Phi_{i}=\Phi_{i-1}-(C_i-1)+1$ $\Rightarrow$ $\hat{C_i}=C_i+(\Phi_i-\Phi_{i-1})=2$  
-$\Rightarrow$ $T_{amortized}=2=O(1)$
+$\Rightarrow$ $T_{amortized}=2=O(1)$  
 
+#### DeleteMin(H)  
 
+*Step1:* FindMin in $B_k$ $\Rightarrow$ $O(logn)$  
+*Step2:* Remove $B_k$ from $H$ $\Rightarrow$ $O(1)$  
+*Step3:* Remove root from $B_k$ $\Rightarrow$ $O(logn)$  
+*Step4:* Merge $\Rightarrow$ $O(logn)$  
+
+#### Implementation  
+
+?>**Left-child-next-sibling** with linked lists  
+When doing *Merge*, the new tree will be the *largest*. Hence maintain the subtrees **in decreasing sizes**.   
+
+![alt text](image-42.png)  
+
+#### Summary
 |Operation|Find-min|Delete-min|Insert|Decrease-key|merge|
 |---------|--------|----------|------|------|----|
-|Binary Heap|$\Theta(1)$|$\Theta(logn)$|$O(logn)$|$O(logn)$|==$\Theta(n)$==|
+|Binary Heap|$\Theta(1)$|$\Theta(logn)$|==$O(logn)$==|$O(logn)$|==$\Theta(n)$==|
 |Leftist Heap|$\Theta(1)$|$\Theta(logn)$|$\Theta(logn)$|$O(logn)$|$\Theta(logn)$|
 |Skew Heap|$\Theta(1)$|$\Theta(logn)$|<font color=red>$\Theta(logn)$</font>|<font color=red>$O(logn)$</font>|<font color=red>$\Theta(logn)$</font>|
 |Binomial Queue|$\Theta(1)$|$\Theta(logn)$|<font color=red>$\Theta(1)$</font>|$O(logn)$|$O(logn)$|
