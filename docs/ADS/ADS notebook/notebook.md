@@ -638,3 +638,42 @@ $\hat{c} = {c} + \phi(H_{merged}) - \phi({H_1})-\phi({H_2})$
 $\hat{c}=c+\phi(H_{merged})-\phi(H_1)-\phi(H_2)\leq2(l_1+l_2)$  
 $\Rightarrow\hat{c}=O(logN)$  
 
+### Binomial Queue  
+
+>**Target:** *Insert* operation takes $\Theta(1)$ under amortized analysis  
+
+?>**Definition**
+A binomial queue is a collection of *heap-ordered trees*, known as a forest. Each heap-ordered tree is a **binomial tree**.
+<br/>
+A binomial tree of height 0 is a one-node tree.  
+A binomial tree $B_k$, of height $k$ is formed by attaching a binomial tree $B_{k–1}$, to the root of another binomial tree $B_{k–1}$. $\Rightarrow$ the number of nodes at depth $d$ is $C_k^d$    
+
+![alt text](image-40.png)  
+
+#### Insert  
+
+A binomial queue of $N$ elements can be built by $N$ successive insertions in $O(N)$ time $\Rightarrow$ Insert in $O(1)$ time under amortized analysis  
+
+![alt text](image-41.png)  
+
+**Proof 2:**  
+$C_i=$ cost of the $i^{th}$ insertion  
+$\Phi_i=$ number of trees after the $i^{th}$ insertion ($\Phi_0=0$)  
+
+$\Rightarrow$ $\Phi_{i}=\Phi_{i-1}-(C_i-1)+1$ $\Rightarrow$ $\hat{C_i}=C_i+(\Phi_i-\Phi_{i-1})=2$  
+$\Rightarrow$ $T_{amortized}=2=O(1)$
+
+
+|Operation|Find-min|Delete-min|Insert|Decrease-key|merge|
+|---------|--------|----------|------|------|----|
+|Binary Heap|$\Theta(1)$|$\Theta(logn)$|$O(logn)$|$O(logn)$|==$\Theta(n)$==|
+|Leftist Heap|$\Theta(1)$|$\Theta(logn)$|$\Theta(logn)$|$O(logn)$|$\Theta(logn)$|
+|Skew Heap|$\Theta(1)$|$\Theta(logn)$|<font color=red>$\Theta(logn)$</font>|<font color=red>$O(logn)$</font>|<font color=red>$\Theta(logn)$</font>|
+|Binomial Queue|$\Theta(1)$|$\Theta(logn)$|<font color=red>$\Theta(1)$</font>|$O(logn)$|$O(logn)$|
+|Skew Binomial Queue|$\Theta(1)$|$\Theta(logn)$|$\Theta(1)$|$\Theta(logn)$|$\Theta(logn)$|$O(logn)$|
+|Fibonacci Heap|$\Theta(1)$|$O(logn)$|<font color=red>$\Theta(1)$</font>|<font color=red>$\Theta(1)$</font>|<font color=red>$\Theta(1)$</font>|
+
+> <font color=red>Red</font> is amortized time.  
+
+
+
