@@ -710,9 +710,8 @@ A. there are two binomial trees after merging, which are B2B_2 and B4B_4
 B. 13 and 15 are the children of 4  
 C. if 23 is a child of 2, then 12 must be another child of 2  
 ==D. if 4 is a child of 2, then 23 must be another child of 2==  
-
 ![alt text](132.jpg)  
-
+<br/>
 ### The functions `BinQueue_Find` and `Recur_Find` are to find X in a binomial queue H.  Return the node pointer if found, otherwise return NULL.  
 
 ```c
@@ -744,3 +743,12 @@ BinTree Recur_Find( BinTree T, ElementType X )
     return result;
 }
 ```
+
+## HW-6  
+
+1. Given the following game tree, which node is the first one to be pruned with α-β pruning algorithm?  
+![alt text](aa3cd703-e174-4e1c-9b3d-3cd7864c3cf1.png)  
+A. a  
+B. b  
+==C. c== (Just follw the steps on oi-wiki)  
+D. d
