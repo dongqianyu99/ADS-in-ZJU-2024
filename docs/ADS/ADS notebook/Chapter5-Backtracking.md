@@ -80,9 +80,40 @@ bool Reconstruct(DistType X[], DistSet D, int N, int left, int right){
 
 **Minimax Strategy**  
 Use an evaluation function to quantify the "goodness" of a position. For example:  
-$f(P)=W_{Computer} - W_{Human}$, where W is the number of potentail wins at position P  
+$f(P)=W_{Computer} - W_{Human}$, where $W$ is the number of potentail wins at position $P$  
 
 ![alt text](image-45.png)
 
 ?>The human is trying to **minimize** the value of the position $P$, while the computer is trying to **maximize** it.  
 
+- Construct a *game tree* $\Rightarrow$ every node has *a state of certainty*  
+- Human wants to minimize the $f$ (we already know its strategy), so Computer need to **maximize that minimum**  
+
+![alt text](image-46.png)  
+
+### $\alpha$-pruning  
+
+![alt text](image-47.png)  
+
+### $\beta$-pruning  
+
+![alt text](image-48.png)  
+
+A detailed example can be found on [oi-wiki: alpha-beta](https://oi-wiki.org/search/alpha-beta/)  
+
+### Time Complexity  
+
+$N$ (or in some material, $b^d$, with an (average or constant) branching factor of $b$, and a search depth of $d$ plies) is the size of the full game tree  
+
+**Worst-case:** $O(N)$, $O(b^d)$  
+**Best-case:** $O(\sqrt{N})$, $O(\sqrt{b^d})$  
+
+When calculating $S(k)$ under the best-case, we suppose the wanted path is the *leftist path*, taking $S(k-1)$ to get to the leaf. Therefore, we need to *prune the rest of branches*, taking $R(k-1)$. The fastest way to do it is by taking $S(k-2)$ to get to the leaf, returning that this node has to be pruned. Thus, $R(k-1)=S(k-2)$.  
+
+$S(k) = S(k-1)+(b-1) \cdot R(k-1)$
+$=(S(k-2)+(b-1)\cdot R(k-2))+(b-1)\cdot S(k-2)$  
+$=bS(k-2)+(b-1)\cdot R(k-2)$  
+$=bS(k-2)+(b-1)\cdot S(k-3)$  
+
+It is obvious that $S(k-3)<S(k-2)$, so:  
+$S(k)<(2b-1)\cdot S(k-2)<2b\cdot S(k-2)$  
