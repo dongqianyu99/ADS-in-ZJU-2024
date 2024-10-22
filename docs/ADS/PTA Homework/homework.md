@@ -674,6 +674,11 @@ int main()
 }
 ```
 
+## EX-3  
+1. In a search engine, thresholding for <mark>query</mark> retrieves the top kk documents according to their weights.  
+A. T  
+<mark>B. F ("Documents", not "query")</mark>  
+
 ## HW-4  
 1. **(HARD)** We can perform BuildHeap for leftist heaps by considering each element as a one-node leftist heap, placing all these heaps on a queue, and performing the following step: Until only one heap is on the queue, dequeue two heaps, merge them, and enqueue the result.  Which one of the following statements is FALSE?
 A. in the $k^{th}$ run, $\lceil N/2^k \rceil$ leftist heaps are formed, each contains $2^k$ nodes
