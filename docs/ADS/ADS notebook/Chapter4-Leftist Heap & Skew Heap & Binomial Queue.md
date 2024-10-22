@@ -52,6 +52,8 @@ For a leftist heap with n nodes, its right path has at most log2(n + 1) nodes.
 
 [Skew Heap Visualization](https://www.cs.usfca.edu/~galles/JavascriptVisual/SkewHeap.html)  
 
+![alt text](image-49.png)
+
 ### Amortized Analysis for Skew Heaps  
 
 >**Definition**  

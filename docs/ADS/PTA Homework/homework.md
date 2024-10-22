@@ -709,6 +709,33 @@ PriorityQueue Merge( PriorityQueue H1, PriorityQueue H2 )
 }
 ```
 
+## EX-4  
+
+1. Merge the two skew heaps in the following figure. How many of the following statements is/are FALSE?
+a. the null path length of 8 is the same as that of 12$\checkmark$  
+b. 40 is the left child of 18$\checkmark$  
+c. the depths of 18 and 33 are the same$\checkmark$  
+![alt text](9e9d9199-802c-4ae0-85a3-5d01d3500eff.png)  
+<br/>
+2. Delete the minimum number from the given leftist heap. Which one of the following statements is TRUE?  
+![alt text](fb5912d6-552e-4c46-b2b0-4d4b35052bc5.JPG)  
+A. 3 is NOT the root  
+B. 24 is the left child of 12  
+<mark>C. 8 is the left child of 7</mark>  
+D. 12 is the right child of 6  
+![alt text](image-5.png)
+<br/>
+3. Merge the two given skew heaps. Which one of the following statements is FALSE?  
+A. 1 is the root  
+B. 7 is the right child of 6  
+<mark>C. 9 is the right child of 5</mark>  
+D. 5 is the left child of 4  
+![alt text](98a094d5-244d-4f88-b062-38123a9bb84d.JPG)  
+<br/>
+4. **(Wrong)**For a skew heap with N nodes, the worst-case running time of all operations (insert/delete min/merge) is $O(N)$.  
+<mark>A. T</mark>(WHY???)  
+B. F  
+
 ## HW-5  
 1. Merge the two binomial queues in the following figure.  Which one of the following statements must be FALSE?  
 A. there are two binomial trees after merging, which are B2B_2 and B4B_4  
