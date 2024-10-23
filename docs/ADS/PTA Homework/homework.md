@@ -776,6 +776,25 @@ BinTree Recur_Find( BinTree T, ElementType X )
 }
 ```
 
+## EX-5  
+
+1. In a binomial queue, the total number of the nodes at even depth is always ___ than that of the nodes at odd depth (the root is defined to be at the depth 0).
+<mark>A. not smaller</mark>  
+B. not larger  
+C. smaller  
+D. larger  
+<br/>
+2. In a binomial queue, we donote the total number of the nodes at even depth and odd depth as N1 and N2, respectively (the root is defined to be at the depth 0). Which of the following statements is FALSE?
+<mark>A. If N1 > N2, then N1 + N2 can be even.</mark>  
+B. If N1 + N2 is odd, then N1 > N2.  
+C. For all cases, N1 ≥ N2.  
+D. For all cases, N1 - N2 ≤ 1.  
+3. Which of the following statements about binomial queue is FALSE?  
+A. Find-Min operation can take $\Theta(1)$.  
+<mark>B. The worst case of insertion is $\Theta(N)$.</mark>  
+C. The amortized time of insertion is $\Theta(1)$.    
+D. Delete-Min operation can take $\Theta(logN)$.  
+
 ## HW-6  
 
 1. Given the following game tree, which node is the first one to be pruned with α-β pruning algorithm?  
@@ -784,3 +803,7 @@ A. a
 B. b  
 ==C. c== (Just follw the steps on oi-wiki)  
 D. d
+
+## EX-6  
+
+1. 
