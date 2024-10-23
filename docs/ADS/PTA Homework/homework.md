@@ -806,4 +806,20 @@ D. d
 
 ## EX-6  
 
-1. 
+1. Given the following game tree, the red node will be pruned with $\alpha$-$\beta$ pruning algorithm if and only if ___.    
+![alt text](1e23ea11-8ab4-4453-8237-311273ad6ffc.jpg)  
+<mark>A. $x\ge50$</mark>  
+B. $x\le65$  
+C. $x\ge77$  
+D. $65\le x\le 77$  
+<br/>
+2. Given the following game tree, node dd will be pruned with α−βα-β pruning algorithm if and only if _____.  
+![alt text](41ea932b-f810-416b-a618-1eaa00b5dda2.png)  
+<mark>A. $b\le 68$</mark>>  
+B. $b\ge 86$  
+C. $b\ge 58$  
+D. $58 \le b  \le 68$  
+<br/>
+3. **(Wrong)**What makes the time complexity analysis of a backtracking algorithm very difficult is that the sizes of solution spaces may vary.  
+A. T  
+<mark>B. F</mark>  
