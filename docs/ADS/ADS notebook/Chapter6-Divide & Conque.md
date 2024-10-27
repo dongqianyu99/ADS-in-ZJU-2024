@@ -65,8 +65,51 @@ example from [Isshiki修's Notebook](https://note.isshikih.top/cour_note/D2CX_Ad
 
 ### Recursion-tree method  
 
+We just keep expanding the recursion and we get something like:  
 
+$T(N) = ... = \underbrace{\sum_{leaf_i}^{leaves}T(N_{leaf_i})}_{conquer} + \underbrace{\sum_{node_i}^{non-leaf-nodes}f(N_{node_i})}_{combine}$  
+
+We can consider $T(N_{leaf_i})$ as a constant, therfore:  
+
+$T(N) = ... = \underbrace{c\; N_{leaves}}_{conquer} + \underbrace{\sum_{node_i}^{non-leaf-nodes}f(N_{node_i})}_{combine}$  
+
+Using *Recursion-tree* to make it more graphic  
+
+?>$T(N)=3T(N/4)+\Theta(N^2)$  
+
+![alt text](59.png)  
+
+!>some mathematical tools  
+$a^{\log_b N} = \exp^{\frac{\ln N}{\ln b} \ln a} = \exp^{\frac{\ln a}{\ln b} \ln N} = N^{\log_b a}$  
 
 ### Master method  
 
+The key point is to compare *combine part* ($f(N)$) and *conquer part* ($N^log_ba$) to choose a master
 
+Vertification can check [Isshiki修's Notebook](https://note.isshikih.top/cour_note/D2CX_AdvancedDataStructure/Lec07/#%E8%AF%81%E6%98%8E)  
+
+#### Form-1  
+
+>Consider: $T(N)=aT(N/b)+f(N)$  
+>- $f(N)=O(N^{log_ba-\epsilon})$ for some constant $\epsilon\gt 0$ $\Rightarrow$ $T(N)=\Theta(N^{log_b a})$  
+>- $f(N)=\Theta(N^{log_ba}$, then $T(N)=\Theta(N^{log_ba}logN)$  
+>- $f(N)=\Omega(N^{log_ba+\epsilon})$ for some constant $\epsilon\gt 0$, and if $af(\frac{N}{b})<cf(N) \text{ for } c<1 \text{ and } \forall N > N_0$ **(regularity condition)** $\Rightarrow$ $T(N)=\Theta(f(N))$  
+
+#### Form-2  
+
+>- if $af(\frac{N}{b}) = \kappa f(N) \text{ for fixed } \kappa < 1$, then $T(N) = \Theta(f(N))$  
+>- if $af(\frac{N}{b}) = \Kappa f(N) \text{ for fixed } \Kappa > 1$, then $T(N) = \Theta(N^{\log_b{a}}) = \Theta(a^{\log_b{N}})$  
+>- if $af(\frac{N}{b}) = f(N)$, then $T(N) = \Theta(f(N) \log_b N)$  
+
+#### Form-3  
+
+>Consider: $\begin{aligned}& T(N) = a T(\frac{n}{b}) + \Theta(N^k \log^p{N})& \text{Where } a \geq 1,\; b > 1,\; p \geq 0\end{aligned}$  
+>$\Rightarrow$  $T(N) = \left\{
+\begin{aligned}
+& O(N^{\log_b{a}}) & \text{if } a > b^{k} \\
+& O(N^k \log^{p+1}{N}) & \text{if } a = b^{k} \\
+& O(N^k \log^{p}{N}) & \text{if } a < b^{k}
+\end{aligned}
+\right.$
+
+>Further Reading: [Some Notes on the Master Methods](/ADS/Some%20Notes%20on%20the%20Master%20Methods.pdf)
