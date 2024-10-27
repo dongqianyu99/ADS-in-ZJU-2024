@@ -823,3 +823,24 @@ D. $58 \le b  \le 68$
 3. **(Wrong)**What makes the time complexity analysis of a backtracking algorithm very difficult is that the sizes of solution spaces may vary.  
 A. T  
 <mark>B. F</mark>  
+
+## HW-7  
+
+1. To solve a problem with input size $N$ by divide and conquer algorithm, among the following methods, \_\_ is the worst.   
+A. divide into 2 sub-problems of equal complexity $N/3$ and conquer in $O(N)$  
+B. divide into 2 sub-problems of equal complexity $N/3$ and conquer in $O(NlogN)$  
+<mark>C. divide into 3 sub-problems of equal complexity $N/2$ and conquer in $O(N)$</mark>  
+D. divide into 3 sub-problems of equal complexity$N/3$ and conquer in $O(NlogN)$  
+>A. $T(N)=2T(N/3)+O(N)$ $\Rightarrow$ $N^{\log_ba}=N^{\log_32}<N$, $T=O(N)$  
+>B. $T(N)=2T(N/3)+O(N\log N)$ $\Rightarrow$ $N^{\log_ba}=N^{\log_32}<N<N\log N$, $T=O(N\log N)$  
+>C. $T(N)=3T(N/2)+O(N)$ $\Rightarrow$ $N^{\log_ba}=N^{\log_23}>N$, $T=O(N^{\log_23})$  
+>D. $T(N)=3T(N/3)+O(N\log N)$ $\Rightarrow$ $N^{\log_ba}=N$, $T=O(N\log N)$  
+<br/>
+2. Which one of the following is the lowest upper bound of $T(n)$ for the following recursion $T(n)=2T(\sqrt{n})+\log n$?  
+<mark>A. $O(\log n\log\log n)$</mark>  
+B. $O(log^2 n)$  
+C. $O(n\log n)$  
+D. $O(n^2)$  
+>$T(n)=2T( \sqrt{n})+\log n=2^kT(n^{1/2^k})+(k+1)\log n$  
+>let $n^{1/2^k}=2$ $\Rightarrow$ $k=\log\log n$  
+>therefore, $T(n)=O((k+1)\log n)=O(\log n\log\log n)$  
