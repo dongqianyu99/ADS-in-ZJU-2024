@@ -744,6 +744,7 @@ C. if 23 is a child of 2, then 12 must be another child of 2
 ==D. if 4 is a child of 2, then 23 must be another child of 2==  
 ![alt text](132.jpg)  
 <br/>
+
 ### The functions `BinQueue_Find` and `Recur_Find` are to find X in a binomial queue H.  Return the node pointer if found, otherwise return NULL.  
 
 ```c
@@ -844,3 +845,50 @@ D. $O(n^2)$
 >$T(n)=2T( \sqrt{n})+\log n=2^kT(n^{1/2^k})+(k+1)\log n$  
 >let $n^{1/2^k}=2$ $\Rightarrow$ $k=\log\log n$  
 >therefore, $T(n)=O((k+1)\log n)=O(\log n\log\log n)$  
+
+## HW-8  
+
+1. Given a recurrence equation $f_{i,j,k}=f_{i,j+1,k}+\min\limits_{0\leqslant l\leqslant k} \{f_{i-1,j,l}+w_{j,l}\}$. To solve this equation in an iterative way, we cannot fill up a table as follows:  
+A. for k in 0 to n: for i in 0 to n: for j in n to 0  
+<mark>B. for i in 0 to n: for j in 0 to n: for k in 0 to n<mark/>($f_{i,j,k}$ depends on $f_{i,j+1,k}$)  
+C. for i in 0 to n: for j in n to 0: for k in n to 0  
+D. for i in 0 to n: for j in n to 0: for k in 0 to n  
+
+### Programming Contest
+```c
+//依次考虑是否做每个题目
+//f[i][j]表示已经处理前 i 个题目，获得的总分数为 j 时需要的最短时间
+int min(int a, int b){
+    return a < b ? a : b;
+}
+
+int need_time(const int time[], const int score[], int happy_score, int n){
+    int score_tol = 0;
+    for (int i = 0; i < n; i++)
+        score_tol += score[i];
+
+    int f[n + 5][score_tol + 5];
+    for (int i = 0; i <= n; i++)
+        for (int j = 0; j <= score_tol; j++)
+            f[i][j] = 0x3f3f3f3f;
+
+    // printf("1");
+    f[0][0] = 0;
+
+    for (int i = 1; i <= n; i++){
+        for (int j = 0; j <= score_tol; j++)
+            f[i][j] = f[i - 1][j];
+        for (int j = score[i - 1]; j <= score_tol; j++)
+            f[i][j] = min(f[i][j], f[i - 1][j - score[i - 1]] + time[i - 1]);
+    }
+
+    int res = 0x3f3f3f3f;
+    for (int j = happy_score; j <= score_tol; j++)
+        res = min(res, f[n][j]);
+
+    if (res == 0x3f3f3f3f)
+        res = -1;
+
+    return res;
+}
+```
