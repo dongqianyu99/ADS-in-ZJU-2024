@@ -5,4 +5,5 @@
   - [Chapter4: Leftist Heap & Skew Heap & Binomial Queue](/ADS/ADS%20notebook/Chapter4-Leftist%20Heap%20&%20Skew%20Heap%20&%20Binomial%20Queue.md)
   - [Chapter5: Backtracking](/ADS/ADS%20notebook/Chapter5-Backtracking.md)
   - [Chapter6: Divide & Conquer](/ADS/ADS%20notebook/Chapter6-Divide%20&%20Conque.md)
+  - [Chapter7: Dynamic Programming](/ADS/ADS%20notebook/Chapter7-Dynamic%20Programming.md)
 - [PTA Homework](/ADS/PTA%20Homework/homework.md)
