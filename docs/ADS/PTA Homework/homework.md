@@ -9,8 +9,8 @@ Reference:
 A. 13  
 B. 17  
 C. 20  
-==D. 33==  
-**n~h~ = h~h-1~ + h~h-2~ + 1**
+<mark>D. 33</mark>  
+<mark>$n_h = h_{h - 1} + h_{h - 2} + 1$</mark>  
 ![alt text](image.png)
 <br/>
 2. For the result of accessing the keys 3, 9, 1, 5 in order in the splay tree in the following figure, which one of the following statements is FALSE?  
@@ -21,27 +21,27 @@ C. 6 and 10 are siblings
 <mark>D. 3 is the parent of 4</mark>  
 <br/>
 3. When doing amortized analysis, which one of the following statements is FALSE?  
-A.Aggregate analysis shows that for all n, a sequence of nn operations takes worst-case time T(n) in total.  Then the amortized cost per operation is therefore T(n)/n  
+A. Aggregate analysis shows that for all $n$, a sequence of $n$ operations takes worst-case time $T(n)$ in total. Then the amortized cost per operation is therefore $T(n)/n$  
 <mark>B. For potential method, a good potential function should always assume its ~~maximum~~（minimum） at the start of the sequence</mark>  
 C. For accounting method, when an operation's amortized cost exceeds its actual cost, we save the difference as credit to pay for later operations whose amortized cost is less than their actual cost  
 D. The difference between aggregate analysis and accounting method is that the later one assumes that the amortized costs of the operations may differ from each other  
 <br/>
 4. (**Wrong**)Insert 2, 1, 4, 5, 9, 3, 6, 7 into an initially empty AVL tree.  Which one of the following statements is FALSE?  
 A. 4 is the root  
-==B. 3 and 7 are siblings==  
+<mark>B. 3 and 7 are siblings</mark>  
 C. 2 and 6 are siblings  
 D. 9 is the parent of 7  
 
 ![alt text](image-1.png)    
 [AVL Tree Visulization](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)  
 <br/>
-5. (**Wrong**)Consider the following buffer management problem. Initially the buffer size (the number of blocks) is one. Each block can accommodate exactly one item. As soon as a new item arrives, check if there is an available block. If yes, put the item into the block, induced a cost of one. Otherwise, the buffer size is doubled, and then the item is able to put into. Moreover, the old items have to  be moved into the new buffer so it costs k+1 to make this insertion, where k is the number of old items. Clearly, if there are N items, the worst-case cost for one insertion can be $\Omega (N)$.  To show that the average cost is O(1), let us turn to the amortized analysis. To simplify the problem, assume that the buffer is full after all the N items are placed. Which of the following potential functions works?  
+5. (**Wrong**)Consider the following buffer management problem. Initially the buffer size (the number of blocks) is one. Each block can accommodate exactly one item. As soon as a new item arrives, check if there is an available block. If yes, put the item into the block, induced a cost of one. Otherwise, the buffer size is doubled, and then the item is able to put into. Moreover, the old items have to  be moved into the new buffer so it costs $k+1$ to make this insertion, where $k$ is the number of old items. Clearly, if there are N items, the worst-case cost for one insertion can be $\Omega (N)$.  To show that the average cost is O(1), let us turn to the amortized analysis. To simplify the problem, assume that the buffer is full after all the N items are placed. Which of the following potential functions works?  
 A. The number of items currently in the buffer  
 B. The opposite number of items currently in the buffer  
 C. The number of available blocks currently in the buffer  
-==D. The opposite number of available blocks in the buffer==  
+<mark>D. The opposite number of available blocks in the buffer</mark>  
 
->When given the potential function, we need to calculate $\Delta$$\phi$ and add it to c~i~, which equals to c~i~_hat. The potentail function is working when in every situation the c~i~_hat equals to the target average cost.  
+>When given the potential function, we need to calculate $\Delta\phi$ and add it to $c_i$, which equals to $\hat{c_i}$. The potentail function is working when in every situation the $\hat{c_i}$ equals to the target average cost.  
 >
 >![alt text](image-2.png)
 
@@ -172,29 +172,29 @@ int main()
 ## EX-1
 
 1. Amortized bounds are weaker than the corresponding worst-case bounds, because there is no guarantee for any single operation.  
-==A. T==  
+<mark>A. T</mark>  
 B. F  
 <br/>
-2. Suppose we have a potential function $\phi$ such that for all $\phi$(Di)$\geq$$\phi$(D0) for all ii, but $\phi$(D0)$\neq$0. Then there exists a potential $\phi$′ such that $\phi$′(D0)=0, $\phi$′(Di)$\geq$0 for all i$\geq$1, and the amortized costs using $\phi$′ are the same as the amortized costs using $\phi$.  
-==A. T==  
+2. Suppose we have a potential function $\phi$ such that for all $\phi(D_i)\geq\phi(D_0)$ for all $i$, but $\phi(D_0)\neq0$. Then there exists a potential $\phi$′ such that $\phi$′$(D_0)=0$, $\phi$′$(D_i)\geq0$ for all $i\geq1$, and the amortized costs using $\phi$′ are the same as the amortized costs using $\phi$.  
+<mark>A. T</mark>  
 B. F
 <br/>
-3. For the result of accessing the keys 1 and 2 in order in the splay tree in the following figure, let's define size(v)=number of nodes in subtree of v ( vv included ) and potential $\phi$=$\sum$v[log~⁡2~size(v)], where [x] means the greatest interger no larger than x.  
+3. For the result of accessing the keys 1 and 2 in order in the splay tree in the following figure, let's define size(v)=number of nodes in subtree of $v$ ( $v$ included ) and potential $\phi \sum v[log_⁡2\;size(v)]$, where $[x]$ means the greatest interger no larger than $x$.  
 How many of the following statements is/are TRUE?  
-a. the potential change from the initial tree to the resulted tree is -4 ==(-5?)==  
-b. ==1 is the sibling of 4==  
-c. ==5 is the child of 6==  
+a. the potential change from the initial tree to the resulted tree is -4 <mark>(-5?)</mark>  
+<mark>b. 1 is the sibling of 4</mark>  
+<mark>c. 5 is the child of 6</mark>  
 ![alt text](071d7a8c-c028-4160-a47c-398cf901bc96.png)
 <br/>
 4. (**WRONG**)Insert { 9, 8, 7, 2, 3, 5, 6, 4 } one by one into an initially empty AVL tree. How many of the following statements is/are FALSE?  
    - the total number of rotations made is 5 (Note: double rotation counts 2 and single rotation counts 1)  
-   - ==the expectation (round to 0.01) of access time is 2.75==  
-   - there are 2 nodes with a balance factor of -1  
+   - the expectation (round to 0.01) of access time is 2.75 <mark>(the root counts for 1)</mark>  
+   - <mark>there are 2 nodes with a balance factor of -1</mark>  
 <br/>
 5. (**WRONG**)Which one of the following statements is FALSE?  
-A. For red-black trees, the total cost of rebalancing for m consecutive insertions in a tree of n nodes is O(n+m).  
-==B. To obtain O(1) armortized time for the function decrease-key, the potential function used for Fibonacci heaps is Φ(H)=t(H)+m(H), where t(H) is the number of trees in the root list of heap H, and m(H) is the number of marked nodes in H.(?)==  
-C. Let S(x) be the number of descendants of x (x included). If the potential function used for splay tree is Φ(T)=∑~x∈T~log⁡S(x), then the amortized cost of one splay operation is O(log⁡n).  
+A. For red-black trees, the total cost of rebalancing for $m$ consecutive insertions in a tree of $n$ nodes is $O(n+m)$.  
+<mark>B. To obtain $O(1)$ armortized time for the function decrease-key, the potential function used for Fibonacci heaps is $\phi(H)=t(H)+m(H)$, where $t(H)$ is the number of trees in the root list of heap $H$, and $m(H)$ is the number of marked nodes in $H$.(?)</mark>  
+C. Let $S(x)$ be the number of descendants of $x$ ($x$ included). If the potential function used for splay tree is $\phi(T)=\sum\limits_{x\in T} log⁡S(x)$, then the amortized cost of one splay operation is O(log⁡n).  
 D. In the potential method, the amortized cost of an operation is equal to the actual cost plus the increase in potential due to this operation.  
 
 ## HW-2  

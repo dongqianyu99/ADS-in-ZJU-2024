@@ -6,12 +6,12 @@
 
 >The height of an empty tree is defined to be **-1**  
 
->An empty binary tree is height balanced.   
->If T is a nonempty binary tree with T~L~ and T~R~ as its left and right subtrees, then T is height balanced if  
->1. T~L~ and T~R~ are height balanced  
->2. **|h~L~ - h~R~| <= 1**  
->  
->The **balance factor** **BF(node)** = h~L~ - h~R~; In an AVL tree, BF(node) = -1, 0 or 1
+An empty binary tree is height balanced.   
+If $T$ is a nonempty binary tree with $T_L$ and $T_R$ as its left and right subtrees, then $T$ is height balanced if  
+1. $T_L$ and $T_R$ are height balanced  
+2. $|h_L - h_R| \leq 1$  
+
+The **balance factor** **BF(node)** $= h_L - h_R$; In an AVL tree, BF(node) = -1, 0 or 1
 
 ### Implementation
 
@@ -26,12 +26,12 @@
   - RL Rotation  
   ![alt text](image-16.png)
 
->**Trouble finder**: The lowest unbalanced node  
+>**Trouble finder**: The *lowest* unbalanced node  
 
 ### Time Complexity
 
-T = O(h)  
-Let n~h~ be the minimum number of nodes in a height balanced tree of height h. Then the tree must look like:  
+$T = O(h)$  
+Let $n_h$ be the minimum number of nodes in a height balanced tree of height $h$. Then the tree must look like:  
 
 ![alt text](image-17.png)
 
@@ -176,22 +176,22 @@ Insert( ElementType X, AvlTree T )
 >After a node is accessed, it is **pushed to the root** a series of AVL tree rotations  
 
 >Target:  
->Any M consecutive tree operations starting **from an empty** tree take at most **O(MlogN)** time  
+>Any *M consecutive tree operations* starting **from an empty** tree take at most **O(MlogN)** time  
 
 easy to implement, no extra space, adaptive(continuous access)  
 
 ### Implementation
 
 #### Splay(X)
-For any nonroot node X, denote its parent by P and gradparent by G:  
+For any nonroot node $X$, denote its parent by $P$ and gradparent by $G$:  
 
-*case 1(zig)*: P is the root -> Rotate X and P  
+*case 1(zig)*: $P$ is the root -> Rotate $X$ and $P$  
 
-*case 2*: P is not the root  
-- *zig-zag* ==> double rotation(same as AVL)  
+*case 2*: $P$ is not the root  
+- *zig-zag* $\Rightarrow$ double rotation (same as AVL)  
     ![alt text](image-19.png)
 
-- *zig-zig* ==> single rotation(*different from AVL*)  
+- *zig-zig* $\Rightarrow$ single rotation (**different from AVL**)  
     ![alt text](image-20.png)
 
 #### Findkey
@@ -203,10 +203,10 @@ For any nonroot node X, denote its parent by P and gradparent by G:
 2. *splay the new node*  
 
 #### Delete(X)
-1. Find(X) -> X will be at the root  
-2. Remove(X)  
-3. FindMax(T~L~) -> The largest element will be the root of T~L~, and has **no right child**  
-4. Make T~R~ the right child of the root of T~L~  
+1. $Find(X) \Rightarrow X$ will be at the root  
+2. $Remove(X)$  
+3. $FindMax(T_L) \Rightarrow$ The largest element will be the root of $T_L$, and has **no right child**  
+4. Make $T_R$ the right child of the root of $T_L$  
 
 ### Coding
 
@@ -306,9 +306,9 @@ Remove( ElementType Item, SplayTree T )
 consider the worst-case running time for any **sequence of M operations**  
 
 >Target:
->Any M consecutive operations (**from initial stat**) take at most **O(MlogN)** time -- **Amortized time bound**  
+>Any M consecutive operations (**from initial stat**) take at most **O(MlogN)** time $\Rightarrow$ **Amortized time bound**  
 
->**worst-case bound >= amortized bound >= average-case bound**    
+?>**worst-case bound $\geq$ amortized bound $\geq$ average-case bound**    
 
 ### Aggregate analysis
 e.g. *Stack with MultiPop*  
@@ -316,11 +316,11 @@ e.g. *Stack with MultiPop*
 Consider a sequence of n  
 *Push*, *Pop* and *MultiPop* operations on an initially empty stack
 
-T~amortized~ = O(n)/n = O(1)  
+$T_{amortized} = O(n)/n = O(1)$  
 
 ### Accounting method
 
->When an operation's amortized cost *c~i~_hat* exceeds its actual cost *c~i~*, we assign the difference to specific objects in the data structure ad **credit**  
+>When an operation's amortized cost $\hat{c_i}$ exceeds its actual cost $c_i$, we assign the difference to specific objects in the data structure add **credit**  
 >
 >Credit can help pay for later operations whose amortized cost is less than their actual cost  
 
@@ -332,7 +332,7 @@ e.g.
 
 ### Potential method  
 
-Take a closer look at the **credit** --  
+Take a closer look at the **credit** $\Rightarrow$  
 
 ![alt text](image-23.png)
 
@@ -341,7 +341,7 @@ We call the $\phi$ **potential function**
 ![alt text](image-24.png)
 ![alt text](image-25.png)  
 
-**In general, a good potential function should always assume its minimum at the start of the sequence(like 0)**  
+**In general, a good potential function should always assume its minimum at the start of the sequence (like 0)**  
 
 e.g.  
 
@@ -362,4 +362,4 @@ e.g.
 >To sum up  
 >**Amortized bound:** Average cost for M consecutive operation from some initial state  
 >**Credit(Accounting method):** The different between the amortized costs and actual costs  
->**Potential(Potential method):** A function of the state of the data structure. $\phi$(S) represents work that has been paid for but not yet performed  
+>**Potential(Potential method):** A function of the state of the data structure. $\phi(S)$ represents work that has been paid for but not yet performed  
