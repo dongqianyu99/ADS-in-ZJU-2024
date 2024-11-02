@@ -6,7 +6,7 @@ An inverted index is a database index storing a mapping from content to its loca
 
 |No.|Term|<Times; (Document ID; Word ID)>|
 |---|----|-------------------------------|
-|1|Dongqianyu|<2; (9; 35), (6, 45)>|
+|1|Dongqianyu|<3; (6, 45), (8, 27), (9, 35)>|
 | |Term Dictionary|Posting List|
 
 >Why do we keep **"time"**(frequency)?  
@@ -35,7 +35,7 @@ Write the inverted index to disk;
     - pros: faster for one word  
     - cons: scanning in sequential order is not possible  
   - *Thresholding*  
-    - Document: only retrieve the top x documents where the documents are ranked by weight ==> <u>Not feasible for Boolean queries</u>; Can miss some relevant documents due to truncation  
+    - Document: only retrieve the top x documents where the documents are ranked by weight $\Rightarrow$ <u>Not feasible for Boolean queries</u>; Can miss some relevant documents due to truncation  
     - Query: Sort the query terms by their frequency in <u>ascending</u>(low-frequency trems are more important) order; search according to only some percentage of the original query terms  
     ![alt text](image-7.png)  
 - **Insert( Dictionary, T )**: Vocabulary Insertor  
@@ -62,11 +62,11 @@ Relevance measurement requires 3 elements:
 
 | |Relevant|Irrelevant|
 |-|--------|----------|
-|Retrieved|R~R~|I~R~|
-|Not Retrieved|R~N~|I~N~|
+|Retrieved|$R_R$|$I_R$|
+|Not Retrieved|$R_N$|$I_N$|
 
-**Precision P** = RR / (RR + IR)  
-**Recall R** = RR / (RR + RN)  
+**Precision P** = $R_R / (R_R + I_R)$  
+**Recall R** = $R_R / (R_R + R_N)$  
 
 ![alt text](image-8.png)
 

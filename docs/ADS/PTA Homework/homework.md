@@ -675,7 +675,7 @@ int main()
 ```
 
 ## EX-3  
-1. In a search engine, thresholding for <mark>query</mark> retrieves the top kk documents according to their weights.  
+1. In a search engine, thresholding for <mark>query</mark> retrieves the top $k$ documents according to their weights.  
 A. T  
 <mark>B. F ("Documents", not "query")</mark>  
 
