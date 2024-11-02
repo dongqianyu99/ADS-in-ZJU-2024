@@ -201,21 +201,21 @@ D. In the potential method, the amortized cost of an operation is equal to the a
 
 1. In the red-black tree that results after successively inserting the keys 41; 38; 31; 12; 19; 8 into an initially empty red-black tree, which one of the following statements is FALSE?  
 A. 38 is the root  
-==B. 19 and 41 are siblings, and they are both red(41 is black)==  
+<mark>B. 19 and 41 are siblings, and they are both red(41 is black)</mark>  
 C. 12 and 31 are siblings, and they are both black  
 D. 8 is red  
-![alt text](image-3.png)
+![alt text](image-3.png)  
 [Red/Black Tree Visulization](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)
 <br/>
 2. After deleting 15 from the red-black tree given in the figure, which one of the following statements **must be**(two way of deletion) FALSE?  
 ![alt text](129.jpg)  
 A. 11 is the parent of 17, and 11 is black  
 B. 17 is the parent of 11, and 11 is red  
-==C. 11 is the parent of 17, and 11 is red==  
+<mark>C. 11 is the parent of 17, and 11 is red</mark>  
 D. 17 is the parent of 11, and 17 is black  
 <br/>
 3. Insert 3, 1, 4, 5, 9, 2, 6, 8, 7, 0 into an initially empty 2-3 tree (with splitting).  Which one of the following statements is FALSE?  
-==A. 7 and 8 are in the same node==  
+<mark>A. 7 and 8 are in the same node</mark>  
 B. the parent of the node containing 5 has 3 children  
 C. the first key stored in the root is 6  
 D. there are 5 leaf nodes  
@@ -226,12 +226,12 @@ D. there are 5 leaf nodes
 A. the root is full  
 B. the second key stored in the root is 6  
 C. 6 and 8 are in the same node  
-==D. 6 and 5 are in the same node==  
+<mark>D. 6 and 5 are in the same node</mark>  
 <br/>
 5. Which of the following statements concerning a B+ tree of order M is TRUE?  
 A. the root always has between 2 and M children  
 B. not all leaves are at the same depth  
-==C. leaves and nonleaf nodes have some key values in common==  
+<mark>C. leaves and nonleaf nodes have some key values in common</mark>  
 D. all nonleaf nodes have between $\lceil{M/2}\rceil$ and M children  
 
 ### Self-printable B+ Tree
@@ -550,11 +550,11 @@ int main()
 
 ## EX-2
 
-1. (**WRONG**)If we insert N(N⩾2) nodes (with different integer elements) consecutively to build a red-black tree T from an empty tree, which of the following situations is possible:  
-A. All nodes in T are black  
-B. The number of leaf nodes (NIL) in T is 2N−1  
-C. 2N rotations occurred during the construction of T  
-D. The height of T is ⌈3log⁡2(N+1)⌉ (assume the height of the empty tree is 0)  
+1. (**WRONG**)If we insert $N(N\geq 2)$ nodes (with different integer elements) consecutively to build a red-black tree $T$ from an empty tree, which of the following situations is possible:  
+A. All nodes in $T$ are black  
+B. The number of leaf nodes (NIL) in $T$ is $2N−1$  
+C. $2N$ rotations occurred during the construction of $T$  
+D. The height of $T$ is $\lceil3log⁡2(N+1)\rceil$ (assume the height of the empty tree is 0)  
 
 
 ## HW-3
