@@ -681,12 +681,12 @@ A. T
 
 ## HW-4  
 1. **(HARD)** We can perform BuildHeap for leftist heaps by considering each element as a one-node leftist heap, placing all these heaps on a queue, and performing the following step: Until only one heap is on the queue, dequeue two heaps, merge them, and enqueue the result.  Which one of the following statements is FALSE?
-A. in the $k^{th}$ run, $\lceil N/2^k \rceil$ leftist heaps are formed, each contains $2^k$ nodes
-B. the worst case is when $N=2^K$ for some integer $K$
-C. the time complexity $T(N) = O(\frac{N}{2}log 2^0 + \frac{N}{2^2}log 2^1 + \frac{N}{2^3}log 2^2 + \cdots + \frac{N}{2^K}log 2^{K-1})$ for some integer $K$ so that $N=2^K$
-==D. the worst case time complexity of this algorithm is $\Theta (NlogN)$==  
+A. in the $k^{th}$ run, $\lceil N/2^k \rceil$ leftist heaps are formed, each contains $2^k$ nodes  
+B. the worst case is when $N=2^K$ for some integer $K$  
+C. the time complexity $T(N) = O(\frac{N}{2}log 2^0 + \frac{N}{2^2}log 2^1 + \frac{N}{2^3}log 2^2 + \cdots + \frac{N}{2^K}log 2^{K-1})$ for some integer $K$ so that $N=2^K$  
+<mark>D. the worst case time complexity of this algorithm is $\Theta (NlogN)$</mark>  
 
->From C, $T(N)=O(N)$
+>From C, $T(N)=O(N)$  
 **$T(N)=2T(N/2)+O(logN)$** to get C  
 
 ### The function is to merge two leftist heaps H1 and H2.
@@ -711,7 +711,7 @@ PriorityQueue Merge( PriorityQueue H1, PriorityQueue H2 )
 
 ## EX-4  
 
-1. Merge the two skew heaps in the following figure. How many of the following statements is/are FALSE?
+1. Merge the two skew heaps in the following figure. How many of the following statements is/are FALSE?  
 a. the null path length of 8 is the same as that of 12$\checkmark$  
 b. 40 is the left child of 18$\checkmark$  
 c. the depths of 18 and 33 are the same$\checkmark$  
@@ -732,16 +732,16 @@ B. 7 is the right child of 6
 D. 5 is the left child of 4  
 ![alt text](98a094d5-244d-4f88-b062-38123a9bb84d.JPG)  
 <br/>
-4. **(Wrong)**For a skew heap with N nodes, the worst-case running time of all operations (insert/delete min/merge) is $O(N)$.  
+4. **(Wrong)** For a skew heap with N nodes, the worst-case running time of all operations (insert/delete min/merge) is $O(N)$.  
 <mark>A. T</mark>(WHY???)  
 B. F  
 
 ## HW-5  
 1. Merge the two binomial queues in the following figure.  Which one of the following statements must be FALSE?  
-A. there are two binomial trees after merging, which are B2B_2 and B4B_4  
+A. there are two binomial trees after merging, which are $B_2$ and $B_4$  
 B. 13 and 15 are the children of 4  
 C. if 23 is a child of 2, then 12 must be another child of 2  
-==D. if 4 is a child of 2, then 23 must be another child of 2==  
+<mark>D. if 4 is a child of 2, then 23 must be another child of 2</mark>  
 ![alt text](132.jpg)  
 <br/>
 
@@ -779,13 +779,13 @@ BinTree Recur_Find( BinTree T, ElementType X )
 
 ## EX-5  
 
-1. In a binomial queue, the total number of the nodes at even depth is always ___ than that of the nodes at odd depth (the root is defined to be at the depth 0).
+1. In a binomial queue, the total number of the nodes at even depth is always ___ than that of the nodes at odd depth (the root is defined to be at the depth 0).  
 <mark>A. not smaller</mark>  
 B. not larger  
 C. smaller  
 D. larger  
 <br/>
-2. In a binomial queue, we donote the total number of the nodes at even depth and odd depth as N1 and N2, respectively (the root is defined to be at the depth 0). Which of the following statements is FALSE?
+2. In a binomial queue, we donote the total number of the nodes at even depth and odd depth as N1 and N2, respectively (the root is defined to be at the depth 0). Which of the following statements is FALSE?  
 <mark>A. If N1 > N2, then N1 + N2 can be even.</mark>  
 B. If N1 + N2 is odd, then N1 > N2.  
 C. For all cases, N1 ≥ N2.  
@@ -802,7 +802,7 @@ D. Delete-Min operation can take $\Theta(logN)$.
 ![alt text](aa3cd703-e174-4e1c-9b3d-3cd7864c3cf1.png)  
 A. a  
 B. b  
-==C. c== (Just follw the steps on oi-wiki)  
+<mark>C. c</mark> (Just follw the steps on oi-wiki)  
 D. d
 
 ## EX-6  
@@ -814,14 +814,14 @@ B. $x\le65$
 C. $x\ge77$  
 D. $65\le x\le 77$  
 <br/>
-2. Given the following game tree, node dd will be pruned with α−βα-β pruning algorithm if and only if _____.  
+2. Given the following game tree, node d will be pruned with α−β pruning algorithm if and only if _____.  
 ![alt text](41ea932b-f810-416b-a618-1eaa00b5dda2.png)  
-<mark>A. $b\le 68$</mark>>  
+<mark>A. $b\le 68$</mark>  
 B. $b\ge 86$  
 C. $b\ge 58$  
 D. $58 \le b  \le 68$  
 <br/>
-3. **(Wrong)**What makes the time complexity analysis of a backtracking algorithm very difficult is that the sizes of solution spaces may vary.  
+3. **(Wrong)** What makes the time complexity analysis of a backtracking algorithm very difficult is that the sizes of solution spaces may vary.  
 A. T  
 <mark>B. F</mark>  
 
@@ -850,7 +850,7 @@ D. $O(n^2)$
 
 1. Given a recurrence equation $f_{i,j,k}=f_{i,j+1,k}+\min\limits_{0\leqslant l\leqslant k} \{f_{i-1,j,l}+w_{j,l}\}$. To solve this equation in an iterative way, we cannot fill up a table as follows:  
 A. for k in 0 to n: for i in 0 to n: for j in n to 0  
-<mark>B. for i in 0 to n: for j in 0 to n: for k in 0 to n<mark/>($f_{i,j,k}$ depends on $f_{i,j+1,k}$)  
+<mark>B. for i in 0 to n: for j in 0 to n: for k in 0 to n</mark>($f_{i,j,k}$ depends on $f_{i,j+1,k}$)  
 C. for i in 0 to n: for j in n to 0: for k in n to 0  
 D. for i in 0 to n: for j in n to 0: for k in 0 to n  
 

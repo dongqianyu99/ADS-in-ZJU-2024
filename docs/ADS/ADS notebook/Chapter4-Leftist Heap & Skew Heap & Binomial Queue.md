@@ -19,10 +19,9 @@ ensure the tree is unbalanced, tend to have deep left paths and is preferable to
 
 ![alt text](image-12.png)
 
-Lemma:
-For a leftist heap with n nodes, its right path has at most log2(n + 1) nodes.
-<==> A leftist heap with r nodes on the right path must have at least 2^r - 1 nodes.
-
+>Lemma:  
+For a leftist heap with $n$ nodes, its right path has at most $log_2(n + 1)$ nodes.  
+$\Leftrightarrow$ A leftist heap with $r$ nodes on the right path must have at least $2^r - 1$ nodes.  
 ![alt text](image-10.png)
 
 
@@ -30,11 +29,11 @@ For a leftist heap with n nodes, its right path has at most log2(n + 1) nodes.
 
 ![alt text](image-39.png)  
 
-### recursive version  
+#### recursive version  
 
 ![alt text](image-36.png)  
 
-### interative version  
+#### interative version  
 *Step1:* Sort the right paths without changing their left children  
 
 ![alt text](image-37.png)
@@ -52,6 +51,8 @@ For a leftist heap with n nodes, its right path has at most log2(n + 1) nodes.
 
 [Skew Heap Visualization](https://www.cs.usfca.edu/~galles/JavascriptVisual/SkewHeap.html)  
 
+>Just sort the nodes on the right path as what Leftist Heap does and *swap* from bottom to top along the right path  
+
 ![alt text](image-49.png)
 
 ### Amortized Analysis for Skew Heaps  
@@ -68,14 +69,14 @@ The key point is that potentail function $\phi$ should include both "bad luck" a
 ?>**Properties**  
 If node ${p}$ is a heavy node and its right subtree is merges, ${p}$ will *definitely* turn into a light node  
 If node ${p}$ is a light node and its right subtree is merges, ${p}$ *might* turn into a heavy node  
-sThe only nodes whose heavy/light status can change are nodes that are *initially on the right path*.  
+The only nodes whose heavy/light status can change are nodes that are *initially on the right path*.  
 
 $\hat{c} = {c} + \phi(H_{merged}) - \phi({H_1})-\phi({H_2})$  
 
 - ${H_i}:l_i+h_i \Rightarrow c=T_{worst}=l_1+h_1+l_2+h_2$  
 - $\phi(H_{merge}) \leq l_1 + l_2 + h$  
 - $\phi(H_1)+\phi(H_2) \leq h_1 + h_2 + h$  
-- ${h}$ represents the heavy nodes that are  initially not on the rightest path  
+- *${h}$ represents the heavy nodes that are  initially not on the rightest path*  
 
 $\hat{c}=c+\phi(H_{merged})-\phi(H_1)-\phi(H_2)\leq2(l_1+l_2)$  
 $\Rightarrow\hat{c}=O(logN)$  
@@ -152,7 +153,7 @@ BinQueue Merge(BinQueue H1, BinQueue H2)
 |---------|--------|----------|------|------|----|
 |Binary Heap|$\Theta(1)$|$\Theta(logn)$|$O(logn)$|$O(logn)$|$\Theta(n)$|
 |Leftist Heap|$\Theta(1)$|$\Theta(logn)$|$\Theta(logn)$|$O(logn)$|$\Theta(logn)$|
-|Skew Heap|$\Theta(1)$|$\Theta(logn)$|<font color=red>$\Theta(logn)$</font>|<font color=red>$O(logn)$</font>|<font color=red>$\Theta(logn)$</font>|
+|Skew Heap|$\Theta(1)$|$\Theta(logn)$(?)|<font color=red>$\Theta(logn)$</font>|<font color=red>$O(logn)$</font>|<font color=red>$\Theta(logn)$</font>|
 |Binomial Queue|$\Theta(1)$|$\Theta(logn)$|<font color=red>$\Theta(1)$</font>|$O(logn)$|$O(logn)$|
 |Skew Binomial Queue|$\Theta(1)$|$\Theta(logn)$|$\Theta(1)$|$\Theta(logn)$|$\Theta(logn)$|$O(logn)$|
 |Fibonacci Heap|$\Theta(1)$|$O(logn)$|<font color=red>$\Theta(1)$</font>|<font color=red>$\Theta(1)$</font>|<font color=red>$\Theta(1)$</font>|

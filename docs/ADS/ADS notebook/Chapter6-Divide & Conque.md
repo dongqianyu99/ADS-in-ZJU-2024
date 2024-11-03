@@ -25,7 +25,7 @@ Suppose $min\{left, right\}=\delta$, we only need to deal with points inside the
 
 Moreover, the possible points-pair should be in a $2\delta \times \delta$ rectangle:  
 
-![alt text](c:/Users/DELL/AppData/Local/Temp/57.svg)  
+![alt text](image-52.png)  
 
 and *for every points-pair in the left half or right half rectangle, the distence should be no less than* $\delta$, which means it at most contains 8 points (even with points overlaped):   
 
@@ -84,7 +84,7 @@ $a^{\log_b N} = \exp^{\frac{\ln N}{\ln b} \ln a} = \exp^{\frac{\ln a}{\ln b} \ln
 
 ### Master method  
 
-The key point is to compare *combine part* ($f(N)$) and *conquer part* ($N^log_ba$) to choose a master
+The key point is to compare *combine part* ($f(N)$) and *conquer part* ($N^{log_ba}$) to choose a master
 
 Vertification can check [Isshiki修's Notebook](https://note.isshikih.top/cour_note/D2CX_AdvancedDataStructure/Lec07/#%E8%AF%81%E6%98%8E)  
 
@@ -92,7 +92,7 @@ Vertification can check [Isshiki修's Notebook](https://note.isshikih.top/cour_n
 
 >Consider: $T(N)=aT(N/b)+f(N)$  
 >- $f(N)=O(N^{log_ba-\epsilon})$ for some constant $\epsilon\gt 0$ $\Rightarrow$ $T(N)=\Theta(N^{log_b a})$  
->- $f(N)=\Theta(N^{log_ba}$, then $T(N)=\Theta(N^{log_ba}logN)$  
+>- $f(N)=\Theta(N^{log_ba}$), then $T(N)=\Theta(N^{log_ba}logN)$  
 >- $f(N)=\Omega(N^{log_ba+\epsilon})$ for some constant $\epsilon\gt 0$, and if $af(\frac{N}{b})<cf(N) \text{ for } c<1 \text{ and } \forall N > N_0$ **(regularity condition)** $\Rightarrow$ $T(N)=\Theta(f(N))$  
 
 #### Form-2  
