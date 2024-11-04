@@ -76,7 +76,7 @@ $\Rightarrow$ $u$ (the node should be deleted) has no child or has only one chil
 
 ![alt text](image-33.png)  
   
-*case 3:* $w$ is black & $w$'s left child is red & right child is black $\Rightarrow$ change $w$ into red + do RR Rotation $\Rightarrow$ *case 4*  
+*case 3:* $w$ is black & $w$'s left child is red & right child is black $\Rightarrow$ change $w$ into red + change $w$'s left child into black + do RR Rotation $\Rightarrow$ *case 4*  
 
 *case 4:* $w$ is black & $w$'s right child is red $\Rightarrow$ color change: $w$'s right child into black, $w$ into parent's color, parent into black + parent rotate towards $x$  
 
