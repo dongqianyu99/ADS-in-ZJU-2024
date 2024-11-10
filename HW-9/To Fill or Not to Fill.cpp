@@ -25,7 +25,7 @@ int main()
     maxToGo = Cmax * Davg;
     for (int i = 1; i <= N; i++)
         scanf("%lf%lf", &stations[i].price, &stations[i].dist);
-    sort(stations, stations + N + 1, cmp);
+    sort(stations + 1, stations + N + 1, cmp);
     stations[N + 1].dist = D;
     
 
@@ -34,8 +34,10 @@ int main()
     // }
     
     double res = 0;
-    if ( stations[1].dist != 0)
+    if ( stations[1].dist != 0){
         printf("The maximum travel distance = 0.00\n");
+        return 0;
+    }
     double curoil = 0;
     for (int i = 1; i <= N; i++){
         if (stations[i].dist + maxToGo < stations[i + 1].dist){
@@ -58,7 +60,8 @@ int main()
             }
         if (!flag){
             if ((stations[i].dist + maxToGo) >= D){
-                res += ((D - stations[i].dist) / Davg - curoil) * stations[i].price;
+                if ((D - stations[i].dist) / Davg > curoil)
+                    res += ((D - stations[i].dist) / Davg - curoil) * stations[i].price;
                 printf("%.2lf\n",res);
                 break;
             }
