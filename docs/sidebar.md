@@ -6,4 +6,6 @@
   - [Chapter5: Backtracking](/ADS/ADS%20notebook/Chapter5-Backtracking.md)
   - [Chapter6: Divide & Conquer](/ADS/ADS%20notebook/Chapter6-Divide%20&%20Conque.md)
   - [Chapter7: Dynamic Programming](/ADS/ADS%20notebook/Chapter7-Dynamic%20Programming.md)
+  - [Chapter8: Greedy Algorithms](/ADS/ADS%20notebook/Chapter8-Greedy%20Algorithms.md)
+  - [Chapter9: NP Completeness](/ADS/ADS%20notebook/Chapter9-NP%20Completeness.md)
 - [PTA Homework](/ADS/PTA%20Homework/homework.md)
