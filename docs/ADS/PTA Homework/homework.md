@@ -892,3 +892,22 @@ int need_time(const int time[], const int score[], int happy_score, int n){
     return res;
 }
 ```
+
+## HW-10  
+1. If $L_1\leq_p L_2$ and $L_2\in NP$, then $L_1\in NP$.  
+<mark>A. T</mark>  
+B. F  
+<br/>  
+2. All the languages can be decided by a non-deterministic machine.  
+A. T  
+<mark>B. F</mark>  
+<br/>
+3. If a problem can be solved by dynamic programming, it must be solved in polynomial time.  
+A. T  
+<mark>B. F</mark> (Knapsack problem, 背包问题)  
+<br/>  
+4. Suppose $Q$ is a problem in $NP$, but not necessarily NP-complete. Which of the following is FALSE?    
+A. A polynomial-time algorithm for SAT would sufficiently imply a polynomial-time algorithm for $Q$.  
+<mark>B. A polynomial-time algorithm for $Q$ would sufficiently imply a polynomial-time algorithm for SAT.</mark>  
+C. If $Q\notin P$, then $P\neq NP$.  
+D. If $Q$ is NP-hard, then $Q$ is NP-complete.  
