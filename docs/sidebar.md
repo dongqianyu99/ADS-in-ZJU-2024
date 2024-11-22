@@ -8,4 +8,5 @@
   - [Chapter7: Dynamic Programming](/ADS/ADS%20notebook/Chapter7-Dynamic%20Programming.md)
   - [Chapter8: Greedy Algorithms](/ADS/ADS%20notebook/Chapter8-Greedy%20Algorithms.md)
   - [Chapter9: NP Completeness](/ADS/ADS%20notebook/Chapter9-NP%20Completeness.md)
+  - [Chapter10: Approximation](/ADS/ADS%20notebook/Chapter10-Approximation.md)
 - [PTA Homework](/ADS/PTA%20Homework/homework.md)
