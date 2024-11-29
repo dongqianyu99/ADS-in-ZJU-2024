@@ -53,7 +53,7 @@ T can change. (?)
 
 In a configuration $S$, edge $e=(u, v)$ is **good** if $w_e s_u s_v \lt 0$ ($w_e \lt 0$ iff $s_u == s_v$); otherwise it is **bad**  
 
-In a configuration $S$, a node $u$ is **satisfied** if the weight of incident good edges $\leq$ weight of incident bad edges  
+In a configuration $S$, a node $u$ is **satisfied** if the weight of incident good edges $\geq$ weight of incident bad edges  
 
 A configuration is **stable** if all nodes are satisfied  
 
@@ -88,7 +88,7 @@ in N and logW (???)
 - $S \sim S^{\prime}$: $S^{\prime}$ can be obtained from $S$ by moving one node from $A$ to $B$, or one from $B$ to $A$
 
 If we again use `State_flipping` algorithm  
->Let $(A, B)$ be a local optimal partition and let $(A^*, B^*)$ be a global optimal partition. Then $w(A, B) \leq \frac{1}{2}w(A^*, B^*)$
+>Let $(A, B)$ be a local optimal partition and let $(A^*, B^*)$ be a global optimal partition. Then $w(A, B) \geq \frac{1}{2}w(A^*, B^*)$
 
 ![alt text](image-69.png)  
 
@@ -102,7 +102,7 @@ $$
 
 >- Upon termination, the big-improvement-flip algorithm returns a cut $(A, B)$ so that  
 >$$
->(2+\epsilon)w(A, B) \leq w(A^*, B^*)
+>(2+\epsilon)w(A, B) \geq w(A^*, B^*)
 >$$
 >- The big-improvement-flip algorithm terminates after at most $O(\frac{n}{\epsilon log W})$  
 
