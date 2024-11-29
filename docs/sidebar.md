@@ -9,4 +9,5 @@
   - [Chapter8: Greedy Algorithms](/ADS/ADS%20notebook/Chapter8-Greedy%20Algorithms.md)
   - [Chapter9: NP Completeness](/ADS/ADS%20notebook/Chapter9-NP%20Completeness.md)
   - [Chapter10: Approximation](/ADS/ADS%20notebook/Chapter10-Approximation.md)
+  - [Chapter11: Local Search](/ADS/ADS%20notebook/Chapter11-Local%20Search.md)
 - [PTA Homework](/ADS/PTA%20Homework/homework.md)
