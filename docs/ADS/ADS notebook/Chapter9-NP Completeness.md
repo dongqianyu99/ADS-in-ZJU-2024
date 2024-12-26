@@ -110,10 +110,11 @@ Map $I$ into a binary string $\{ 0, 1 \}^{*}$ $\Rightarrow$ Q is a **concrete pr
 - A **language** $L$ over $\sum$ is any set of strings made up of symbols from $\sum$  
 - Denote **empty string** by $\epsilon$  
 - Denote **empty language** by $\empty$  
-- Language of all strings over $\sum$ is denoted by $\sum^{*}$ 
-- A language $L$ is **decided** by an algorithm $A$ if every binary string in $L$ is **accepted** by $A$ and every binary string not in $L$ is **rejected** by $A$ (solve)  
+- Language of all strings over $\sum$ is denoted by $\sum^{*}$  
+- A language $L_1$ is **polynomial-time reducible** to a language $L_2 (L1 \leq_p L2 )$ if there exists a polynomial-time computable function $f: \{0, 1\}^* → \{0,1\}^*$ such that for all $x \in \{0, 1\}^*,  x\in L_1$ if  $f (x) \in L_2$.
+- A language $L$ is **decided** by an algorithm $A$ if every binary string in $L$ is **accepted** by $A$ and every binary string not in $L$ is **rejected** by $A$.  (solve)  
 - A **verification algorithm** is a two-argument algorithm $A$, where one argument is an ordinary input string $x$ and the other is a binary string $y$ called a **certificate**. 
-A two-argument algorithm $A$ **verifies** an input string $x$ if there exists a certificate $y$ such that **A(x, y) = 1**.   
+A two-argument algorithm $A$ **verifies** an input string $x$ if there exists a certificate $y$ such that **A(x, y) = 1**.  (vertify)  
 
 #### P:  
 ![alt text](image-73.png)  
