@@ -34,7 +34,7 @@ Operations:
 
 ![alt text](image-58.png)
 
-### Dimino  
+### Domino  
 
 [Wikipedia](https://en.wikipedia.org/wiki/Post_correspondence_problem#Proof_sketch_of_undecidability)
 
@@ -75,6 +75,8 @@ A problem H is NPH, if for every problem L which can be solved **Nondeterministi
 
 $\Rightarrow$ Input a boolean expression and ask if it has an assignment to the variables that gives the expression a value of 1.  
 
+Circuit-SAT is a **NPC** problem.
+
 ## Eample 3: Hamilton Cycle Problem  
 
 >It asks if a given directed or undirected graph, G contains a *Hamiltonian cycle* (a cycle that visits each vertex exactly once) [Wikipedia](https://en.wikipedia.org/wiki/Hamiltonian_path_problem)  
@@ -108,8 +110,22 @@ Map $I$ into a binary string $\{ 0, 1 \}^{*}$ $\Rightarrow$ Q is a **concrete pr
 - A **language** $L$ over $\sum$ is any set of strings made up of symbols from $\sum$  
 - Denote **empty string** by $\epsilon$  
 - Denote **empty language** by $\empty$  
-- Language of all strings over $\sum$ is denoted by $\sum^{*}$  
-etc.  
+- Language of all strings over $\sum$ is denoted by $\sum^{*}$ 
+- A language $L$ is **decided** by an algorithm $A$ if every binary string in $L$ is **accepted** by $A$ and every binary string not in $L$ is **rejected** by $A$ (solve)  
+- A **verification algorithm** is a two-argument algorithm $A$, where one argument is an ordinary input string $x$ and the other is a binary string $y$ called a **certificate**. 
+A two-argument algorithm $A$ **verifies** an input string $x$ if there exists a certificate $y$ such that **A(x, y) = 1**.   
+
+#### P:  
+![alt text](image-73.png)  
+#### NP:  
+![alt text](image-74.png)  
+#### co-NP:
+![alt text](image-75.png)
+
+## Example 4: Clique problem & Vertex cover problem
+![alt text](image-76.png)  
+![alt text](image-77.png)
+both NPC problem
 
 ## Sum up  
 
