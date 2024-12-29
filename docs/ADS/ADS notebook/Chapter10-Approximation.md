@@ -10,7 +10,7 @@ $\Rightarrow$ Find *near-optimal* solutions in polynomial time -- **approximatio
 >Defination  
 An algorithm has an **approximation ratio** of $\rho(n)$ if, for any input of size $n$, the cost $C$ of the solution produced by the algorithm is within a factor of $\rho(n)$ of the cost $C^{*}$ of an optimal solution:  
 $$
-max(\frac{C}{c^{*}}, \frac{C^{*}}{C}) \leq \rho(n)
+max(\frac{C}{C^{*}}, \frac{C^{*}}{C}) \leq \rho(n)
 $$  
 called **$\rho$-approximation algorithm**  
 [Wikipedia](https://en.wikipedia.org/wiki/Approximation_algorithm)
@@ -59,7 +59,7 @@ Place a new item in the **tightest** spot among all bins.
 >**On-line Algorithms**  
 Place an item before processing the next one, and *can NOT change decision*.  
 
-**Theorem:** There are inputs that force any on-line bin-packing algorithm to use at least $\frac{5}{3}$ the optimal number of bis.  
+**Theorem:** There are inputs that force any on-line bin-packing algorithm to use at least $\frac{5}{3}$ the optimal number of bins.  
 
 >**Off-line Algorithms**  
 View the entire item list before producing an answer.  
