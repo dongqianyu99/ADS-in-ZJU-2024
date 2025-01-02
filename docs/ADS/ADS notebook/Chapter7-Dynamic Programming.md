@@ -33,7 +33,17 @@ void OptMatrix(const long r[], int N, TwoDimArray M){
 }
 ```
 
+!>The outer loop is usually **the scale of the sub-problem**.
+
 ## Example 3: Optimal Binary Search Tree  
+
+total access times = $\sum\limits^N\limits_{i=1}p_i\cdot (1+d_i)$  
+
+![alt text](image-78.png)
+
+$c_{ij}=p_k + \text{cost}(L) + \text{cost}(R) + \text{weight}(L) + \text{weight}(R) \\
+=p_k + c_{i,k-1} + c_{k+1,j} + w_{i,k-1} + w_{k+1,j} \\
+=w_{ij} + c_{i,k-1} + c_{k+1,j}$
 
 ![alt text](image-50.png)  
 
@@ -41,12 +51,14 @@ void OptMatrix(const long r[], int N, TwoDimArray M){
 
 **Problem:** For all pairs of $v_i$ and $v_j (i \neq j)$, find the shortest path between  
 
-**Solution:** Difine $D^k[i][j]=min\{length \space of \space path \space i \rightarrow \{l \leq k \} \rightarrow j\}$ and $D^{-1}[i][j]=Cost[i][j]$. Then the length of the shortest path from $i$ to $j$ is $D^{N-1}[i][j]$  
+**Solution:** Define $D^k[i][j]=min\{length \space of \space path \space i \rightarrow \{l \leq k \} \rightarrow j\}$ and $D^{-1}[i][j]=Cost[i][j]$. Then the length of the shortest path from $i$ to $j$ is $D^{N-1}[i][j]$  
 
 If $D^{k-1}$ is done, then either:  
 - $k \notin $ the shortest path $i \rightarrow \{l \leq k\} \rightarrow j \Rightarrow D^k=D^{k-1}$  
 - $k \in$ the shortest path $i \rightarrow \{l \leq k\} \rightarrow j \Rightarrow D^k[i][j] = D^{k-1}[i][k]+D^{k-1}[k][j]$  
 $\Rightarrow$ $D^{k}[i][j]=min\{D^{k-1}[i][j], D^{k-1}[i][k]+D^{k-1}[k][j]\}, k \geq 0$  
+
+still $O(N^3)$, but faster in a *dence* graph (Dijkstra's algorithm for $|V|$ times takes $O(N^3)$ as well, but faster in a *sparse* graph)
 
 ```c
 void AllPairs(TwoDimArray A, TwoDimArry D, int N){
@@ -66,9 +78,16 @@ void AllPairs(TwoDimArray A, TwoDimArry D, int N){
 }
 ```
 
+!>This is **the Floyd-Warshall algorithm**.
+
 ## Example 5: Product Assembly  
 
-![alt text](image-51.png)
+![alt text](image-51.png)  
+
+![alt text](image-79.png)  
+
+>An optimal solution contains **an optimal solution of a sub-problem**.  
+>An optimal path to **stage** is based on an optimal path to **stage - 1**.  
 
 ```c
 f[0][0] = 0;
@@ -85,3 +104,8 @@ for (int stage = 1; stage <= n; stage++){
 }
 
 ```
+
+?>When **can't** we apply dynamic programming?  
+**History-dependency**  
+
+![alt text](image-80.png)
